@@ -29,7 +29,7 @@ sudo -u postgres mkdir -p /var/lib/postgresql/{{ postgres_version }}/{{ postgres
 
 echo Get previous backup from backups server
 sudo -u postgres \
-  time rsync --progress -pvia --exclude='*.conf' --exclude='server.crt' --exclude='server.key' --delete \
+  time rsync -e "ssh -o StrictHostKeyChecking=no" --progress -pvia --exclude='*.conf' --exclude='server.crt' --exclude='server.key' --delete \
 {% if postgres_barman_rsync_enabled|default(false) -%}
   --password-file=/var/lib/postgresql/.rsync_pass \
 {%- endif %}
