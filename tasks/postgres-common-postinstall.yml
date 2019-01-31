@@ -7,7 +7,6 @@
   command: ssh-keygen -b 4096 -f /var/lib/postgresql/.ssh/id_rsa -N "" -q
   become: yes
   become_user: postgres
-  become_method: su
   args:
     creates: /var/lib/postgresql/.ssh/id_rsa
 

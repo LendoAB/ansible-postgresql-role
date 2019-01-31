@@ -145,7 +145,6 @@
     - name: Test connection to Postgres instances.
       become: true
       become_user: postgres
-      become_method: su
       command: psql --port=5432 --command='select NOW()'
 
 
