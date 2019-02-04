@@ -23,6 +23,8 @@
   loop: "{{ postgres_clusters }}"
   loop_control:
     loop_var: postgres_cluster
+  notify:
+  - restart postgresql
   tags:
     - postgres
 
