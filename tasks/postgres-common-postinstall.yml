@@ -14,9 +14,6 @@
     src: /var/lib/postgresql/.ssh/id_rsa.pub
   register: db_server_pub_key
 
-- name: SSH config for postgresql user
-  template: src=ssh_config.j2 dest=/var/lib/postgresql/.ssh/config owner=postgres group=postgres
-
 - name: Check if barman is installed on barman server
   getent:
     database: passwd
@@ -36,6 +33,9 @@
   when:
     - postgres_barman_server is defined
     - barman_user_exists is succeeded
+
+- name: SSH config for postgresql user
+  template: src=ssh_config.j2 dest=/var/lib/postgresql/.ssh/config owner=postgres group=postgres
 
 - name: Copy logrotate configuration for postgresql
   template: src=logrotate-postgresql-common.j2 dest=/etc/logrotate.d/postgresql-common owner=root group=root mode=0644
