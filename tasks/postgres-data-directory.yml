@@ -1,5 +1,5 @@
 - name: Create dedicated data directory
-  file: path={{ postgres_data_dir }} state=directory mode=0777 #owner=postgres group=postgres
+  file: path={{ postgres_data_dir }} state=directory mode=0755 #owner=postgres group=postgres
 
 - name: Check /var/lib/postgresql directory
   stat: path=/var/lib/postgresql/
