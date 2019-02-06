@@ -93,7 +93,7 @@ local   all             all                                     peer
 host    all             all             127.0.0.1/32            md5
 {% for host in repmgr_allowed_hosts %}
 host    {{ host.db }}          {{ host.user }} {{ host.range }} {{ host.method }}
-{% endfor%}
+{% endfor %}
 {% for host in postgres_allowed_hosts %}
 host    all             {{ host.user }} {{ host.range }}        md5
 {% endfor %}
