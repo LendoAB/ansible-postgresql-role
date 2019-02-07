@@ -11,6 +11,7 @@
   become: true
   become_user: postgres
   postgresql_user:
+    db:               "{{ postgres_db }}"
     port:             "{{ postgres_port }}"
     name:             "{{ postgres_username }}"
     password:         "{{ postgres_password }}"

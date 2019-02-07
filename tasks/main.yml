@@ -36,7 +36,8 @@
     postgres_password={{ item.1.password }}
     postgres_port={{ item.0.port }}
     postgres_permissions={{ item.1.permissions | default('') }}
-    postgres_priv={{ item.1.priv | default(omit)}}
+    postgres_priv={{ item.1.priv | default(omit) }}
+    postgres_db={{ item.1.db | default(omit) }}
   with_subelements:
     - "{{ postgres_clusters }}"
     - users
