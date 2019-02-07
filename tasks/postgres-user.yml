@@ -16,5 +16,6 @@
     password:         "{{ postgres_password }}"
     encrypted:        true
     role_attr_flags:  "{{ postgres_permissions }}"
+    priv:             "{{ postgres_priv }}"
   when:
     - postgres_up.rc == 0
