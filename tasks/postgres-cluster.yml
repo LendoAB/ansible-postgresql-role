@@ -75,7 +75,7 @@
     - rotational_disk.failed
 
 - name: Upload postgresql.conf
-  template: src=postgresql.{{ postgres_version }}.conf.j2 dest=/etc/postgresql/{{ postgres_version }}/{{ postgres_cluster_name }}/postgresql.conf
+  template: src=postgresql.{{ postgres_version }}.conf.j2 dest=/etc/postgresql/{{ postgres_version }}/{{ postgres_cluster_name }}/postgresql.conf backup=yes
 
 - name: Upload pg_hba.conf
   template: src=pg_hba.conf.j2 dest=/etc/postgresql/{{ postgres_version }}/{{ postgres_cluster_name }}/pg_hba.conf
